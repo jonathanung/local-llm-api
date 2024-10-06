@@ -1,0 +1,5 @@
+.env
+/LLMenv
+__pycache__
+venv
+LLMenv
