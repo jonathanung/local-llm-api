@@ -10,8 +10,16 @@ load_dotenv()
 
 app = FastAPI()
 
-# CORS setup (unchanged)
-# ...
+print(os.getenv("CORS_ORIGINS"))
+# CORS
+origins = os.getenv("CORS_ORIGINS", "").split(",")
+app.add_middleware(
+    CORS,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 # Define a Pydantic model for the request body
 class PromptRequest(BaseModel):

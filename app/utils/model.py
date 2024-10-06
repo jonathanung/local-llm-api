@@ -22,6 +22,7 @@ async def text_generation_pipeline(prompt, return_full_text, max_new_tokens, tem
             repetition_penalty=repetition_penalty,
             top_k=top_k,
             top_p=top_p,
+            pad_token_id=tokenizer.eos_token_id,
             **kwargs
         )
     
